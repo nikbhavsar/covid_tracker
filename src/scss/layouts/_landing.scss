@@ -1,0 +1,128 @@
+.main-div {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  background-image: linear-gradient(rgba(24, 22, 22, 0.603),
+      rgba(37, 29, 29, 0.493)),
+    url('../../images/covid_bg.jpg');
+  background-size: cover;
+}
+
+
+
+.information-section {
+  flex: 0 0 0px;
+  min-width: 50%;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.information-section__buttons-div {
+  flex: 0 0 0px;
+  display: flex;
+  max-height: 30%;
+  min-height: 30%;
+  justify-content: space-around;
+  flex-flow: row wrap;
+
+}
+
+.symptoms-btn {
+  background-color: #ff5722;
+  color: whitesmoke;
+  margin: 30px;
+  display: inline-block;
+}
+
+.preventions-btn {
+  background-color: #f44336;
+  color: whitesmoke;
+  margin: 30px;
+  display: inline-block;
+}
+
+
+.information-section__image-div {
+  flex: 0 0 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.information-section__image {
+
+  max-width: 60%;
+  height: 320px;
+  padding: 10px;
+  align-self: center;
+
+}
+
+// list-by-country-section styles
+
+.list-by-countries-section {
+  max-width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.global-data {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: whitesmoke;
+
+
+}
+
+.global-total-cases {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: 150px;
+}
+
+.country-list {
+  color: white;
+  font-size: 18px;
+}
+
+.country-item {
+  margin: 6px;
+}
+
+table {
+  border-collapse: collapse;
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  border: 0.1px dotted #ddd;
+  text-align: center;
+  border-right: solid;
+  padding: 6px;
+}
+
+.country-list__country {
+  margin: 20px;
+}
+
+.country-list__total {
+  background-color: #fff5f5;
+  color: #e53e3e;
+  border: 0.1px solid #fed7d7;
+}
+
+.country-list__recovered {
+  background-color: #f0ffbf;
+  color: #38a169;
+  border: 0.1px solid #c6f6d5;
+}
