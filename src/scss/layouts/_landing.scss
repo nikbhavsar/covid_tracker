@@ -1,6 +1,7 @@
 .main-div {
   height: 100vh;
   width: 100%;
+  overflow: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -35,20 +36,19 @@
 .symptoms-btn {
   background-color: #ff5722;
   color: whitesmoke;
-  margin: 30px;
+  margin: 20px;
   display: inline-block;
 }
 
 .preventions-btn {
   background-color: #f44336;
   color: whitesmoke;
-  margin: 30px;
+  margin: 20px;
   display: inline-block;
 }
 
 
 .information-section__image-div {
-  flex: 0 0 0px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,7 +56,7 @@
 
 .information-section__image {
 
-  max-width: 60%;
+  // max-width: 60%;
   height: 320px;
   padding: 10px;
   align-self: center;
@@ -66,27 +66,69 @@
 // list-by-country-section styles
 
 .list-by-countries-section {
-  max-width: 35%;
+
+  min-width: 40%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+
 }
 
+
+
 .global-data {
+
   display: flex;
   justify-content: space-around;
+  flex-flow: row wrap;
   align-items: center;
   color: whitesmoke;
 
-
 }
 
-.global-total-cases {
+
+.global-total-cases,
+.global-recovered-cases {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-height: 150px;
+  // max-height: 150px;
+
+}
+
+.global-data__cases-label {
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.global-data__cases-numbers {
+  font-size: 25px;
+  font-weight: bold;
+  padding: 20px;
+  margin-top: 40px;
+  border-radius: 5px;
+  ;
+}
+
+
+.global-numbers-label,
+.global-numbers {
+  background: $extra-light-red;
+  color: $red;
+}
+
+.global-recovered-label,
+.global-recovered {
+  background: $extra-light-green;
+  color: $green;
+}
+
+.country-data {
+  flex: 0 0 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .country-list {
@@ -99,8 +141,10 @@
 }
 
 table {
+  overflow: scroll;
   border-collapse: collapse;
   border: 1px solid #ddd;
+  margin: 20px;
 }
 
 th,
@@ -122,7 +166,7 @@ td {
 }
 
 .country-list__recovered {
-  background-color: #f0ffbf;
-  color: #38a169;
-  border: 0.1px solid #c6f6d5;
+  background-color: $light-green;
+  color: $green;
+  border: 0.1px solid $extra-light-green;
 }

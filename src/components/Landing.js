@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Symptomps_image from '../images/corona_symptoms.jpg';
+import Symptomps_image from '../images/corona_symptoms.png';
 import Corona_preventions from '../images/corona_preventions.jpg';
 import Wash_hands from '../images/wash_hands.png';
 
@@ -71,16 +71,26 @@ const Landing = () => {
       <div className='list-by-countries-section'>
         <div className='global-data'>
           <div className='global-total-cases'>
-            <h1>
-              {JSON.stringify(cases) !== '{}' && cases.Global.TotalConfirmed}
-            </h1>
-            <h4>Total Cases</h4>
+            <div className='global-data__cases-numbers global-numbers'>
+              {JSON.stringify(cases) !== '{}' &&
+                Intl.NumberFormat('en-IN', {
+                  maximumSignificantDigits: 3,
+                }).format(cases.Global.TotalConfirmed)}
+            </div>
+            <div className='global-data__cases-label global-numbers-label'>
+              Total Cases
+            </div>
           </div>
           <div className='global-recovered-cases'>
-            <h1>
-              {JSON.stringify(cases) !== '{}' && cases.Global.TotalRecovered}
-            </h1>
-            <h4>Total Recovered</h4>
+            <div className='global-data__cases-numbers global-recovered'>
+              {JSON.stringify(cases) !== '{}' &&
+                Intl.NumberFormat('en-IN', {
+                  maximumSignificantDigits: 3,
+                }).format(cases.Global.TotalRecovered)}
+            </div>
+            <div className='global-data__cases-label global-recovered-label'>
+              Recovered
+            </div>
           </div>
         </div>
         <div className='country-data'>
@@ -99,10 +109,14 @@ const Landing = () => {
                       {item.Country}
                     </td>
                     <td className='list-span country-list__total'>
-                      {item.TotalConfirmed}
+                      {Intl.NumberFormat('en-IN', {
+                        maximumSignificantDigits: 3,
+                      }).format(item.TotalConfirmed)}
                     </td>
                     <td className='list-span country-list__recovered'>
-                      {item.TotalRecovered}
+                      {Intl.NumberFormat('en-IN', {
+                        maximumSignificantDigits: 3,
+                      }).format(item.TotalRecovered)}
                     </td>
                   </tr>
                 ))}
