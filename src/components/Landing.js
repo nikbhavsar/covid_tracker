@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Symptomps_image from '../images/corona_symptoms.png';
 import Corona_preventions from '../images/corona_preventions.jpg';
-import Wash_hands from '../images/wash_hands.png';
+import Who from '../images/who.png';
 
 const Landing = () => {
   let [cases, setCases] = useState({});
 
   let [elementsToShow, setToggle] = useState(10);
 
-  let [imageType, setImageType] = useState(Wash_hands);
+  let [imageType, setImageType] = useState(Who);
 
   //fetch the data in useEffect hook
 

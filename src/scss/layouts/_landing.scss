@@ -5,6 +5,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap-reverse;
   justify-content: space-around;
   background-image: linear-gradient(rgba(24, 22, 22, 0.603),
       rgba(37, 29, 29, 0.493)),
@@ -141,6 +142,7 @@
 }
 
 table {
+
   overflow: scroll;
   border-collapse: collapse;
   border: 1px solid #ddd;
@@ -169,4 +171,48 @@ td {
   background-color: $light-green;
   color: $green;
   border: 0.1px solid $extra-light-green;
+}
+
+// Responsive styles
+
+
+@media (min-width: 493px) and (max-width: 1064px) {
+
+  .information-section__image {
+    height: 200px;
+  }
+
+  .info-btn {
+    padding: 25px;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 933px) {
+
+  .main-div {
+    height: auto;
+  }
+
+  .information-section__buttons-div {
+    flex-flow: nowrap;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 493px) {
+
+  .list-by-countries-section {
+    height: auto;
+  }
+
+  .information-section__image {
+    height: 175px;
+  }
+
+  .info-btn {
+    padding: 18px;
+    font-size: 15px;
+  }
+
+
 }
