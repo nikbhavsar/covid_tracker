@@ -7,7 +7,8 @@ import Who from '../images/who.png';
 const Landing = () => {
   let [cases, setCases] = useState({});
 
-  let [elementsToShow, setToggle] = useState(10);
+  // Show Full and specific amount of countries
+  // let [elementsToShow, setToggle] = useState(10);
 
   let [imageType, setImageType] = useState(Who);
 
@@ -19,6 +20,14 @@ const Landing = () => {
       setCases(result.data);
     };
     getTopTenCountries();
+
+    //Calling the API after every 50 minutes
+
+    const interval = setInterval(() => {
+      getTopTenCountries();
+      console.log('api called');
+    }, 3000000);
+    return () => clearInterval(interval);
   }, [setCases]);
 
   //sort object by total number of cases
@@ -35,12 +44,14 @@ const Landing = () => {
 
   return (
     <div className='main-div'>
+      <h1 className='title-label'>COVID-19 Update</h1>
       <div className='information-section'>
         <div className='information-section__buttons-div'>
           <div className='information-section__symptoms__button-div'>
             <a
               className='info-btn symptoms-btn'
               href='/'
+              title='press me'
               onClick={(e) => {
                 e.preventDefault();
                 setImageType(Symptomps_image);
@@ -52,6 +63,7 @@ const Landing = () => {
             <a
               className='info-btn preventions-btn'
               href='/'
+              title='press me'
               onClick={(e) => {
                 e.preventDefault();
                 setImageType(Corona_preventions);
@@ -95,15 +107,16 @@ const Landing = () => {
         </div>
         <div className='country-data'>
           <table className='country-list'>
-            <tr>
-              <th className='list-span country-list__country'>Country</th>
-              <th className='list-span country-list__total'>Total Cases</th>
-              <th className='list-span country-list__recovered'>Recovered</th>
-            </tr>
-            {JSON.stringify(cases) !== '{}' &&
-              sortedObjectByTotalConfiormed
-                .slice(0, elementsToShow)
-                .map((item, index) => (
+            <thead>
+              <tr>
+                <th className='list-span country-list__country'>Country</th>
+                <th className='list-span country-list__total'>Total Cases</th>
+                <th className='list-span country-list__recovered'>Recovered</th>
+              </tr>
+            </thead>
+            <tbody>
+              {JSON.stringify(cases) !== '{}' &&
+                sortedObjectByTotalConfiormed.map((item, index) => (
                   <tr key={index} className='country-item'>
                     <td className='list-span country-list__country'>
                       {item.Country}
@@ -120,6 +133,7 @@ const Landing = () => {
                     </td>
                   </tr>
                 ))}
+            </tbody>
           </table>
         </div>
       </div>
